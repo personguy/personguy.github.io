@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="en-us">
+  <head>
+    <title>Hello World.</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="mobile-web-app-capable" content="yes">
+    <link rel="icon" href="wave.png">
+    <meta name="description" content="A simple hello world HTML example.">
+    <meta name="slingcode-tags" content="demo,template">
+    <script src="https://cdn.rawgit.com/Keyang/node-csvtojson/d41f44aa/browser/csvtojson.min.js"></script>
+    <style>
+      body {
+        font-size: .9em;
+        /*max-width: 1000px;*/
+        margin: auto;
+        font-family: Arial, sans-serif;
+        margin: 1em;
+        text-align: center;
+    background-color: #232a25;
+    /*background-image: linear-gradient(120deg, #99ecff 0%, #bbff99 25%, #ffec99 75%, #ff9999 100%);*/
+        height: 100%;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+      }
+      
+      button {
+        margin-top: 3em;
+        font-size: 0.5em;
+        background-color: #fff;
+        border: 2px solid #333;
+        border-radius: 5px;
+        padding: 0.25em 1.5em;
+      }
+      .title {
+        font-weight: bold;
+      }
+      a {
+    text-decoration: none;
+    }
+      h2 {
+        color: #ccc;
+      }
+      .image-grid {
+        display: grid;
+        grid-template-columns: repeat( auto-fill, minmax(200px, 1fr) );
+        gap: 1rem; /* Adjust spacing between grid items */
+        /*width: 700px;*/
+      }
+    
+      .grid-item {
+        /*aspect-ratio: 2;*/
+        background: #cccccc;
+        border-radius: 10px;
+        padding-top: 2px;
+      }
+      
+      .grid-item img {
+        width: 100%;
+        height: auto; /* Maintains image aspect ratio */
+        display: block; /* Removes extra space below the image */
+      }
+      
+      .grid-item figcaption {
+        padding: 1px;
+        text-align: center;
+      }
+      
+      .grid-item figcaption h4 {
+        margin-top: 0;
+        margin-bottom: 0;
+      }
+      
+      .grid-item figcaption p {
+        margin-bottom: 5px;
+        margin-top: 5px;
+        color: #555;
+      }
+      .grid-item figure {
+        margin: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Free YouTube films</h2>
+    <main>
+      <div class="image-grid">
+      </div>
+    </main>
+    <!--<div id="app">
+      Hello world
+    </div>
+      <button onclick="javascript:alert('Hello!');">Press me</button>-->
+  </body>
+  <script>
+    const url = "https://docs.google.com/spreadsheets/d/1hAMgXiL30cewRBmKX5lqcrJbc5T7XOPH_MsPg2FcIyA/export?format=csv";
+    const main = document.querySelector(".image-grid");
+    // const wrapperDiv = document.createElement('div');
+    // wrapperDiv.classList.add('promise-result-wrapper');
+    // main.insertAdjacentHTML('afterbegin', '<div class="image-grid">');
+    fetch(url).then(result=>result.text()).then(function(csvtext) {
+      return csv().fromString(csvtext);
+    }).then(function(csv) {
+      csv.forEach(function(row) {
+        main.innerHTML += '<a href="' + row.Link + '" target="_blank" rel="noopener noreferrer"><div class="grid-item"><figure><img src="' + row.Image + '" alt="Image description"><figcaption><h4>' + row.Title + '</h4><p>' + row.Genre + '</p></figcaption></figure></div></a>';
+      });
+    })
+    // main.innerHTML += '</div>'
+    // main.insertAdjacentHTML('beforeend', '</div>');
+  </script>
+</html>
