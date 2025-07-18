@@ -7,6 +7,7 @@ fetch("filmlist.json")
 	let out = "";
 	for(let results of items.data){
 		// console.log(results.Title);
+		// console.log(results.Title);
 		out += `
 			<a target="_blank" rel="noopener noreferrer" href="${results.Link}">
 				<div class="box">
