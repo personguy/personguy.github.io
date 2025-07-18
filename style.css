@@ -1,8 +1,8 @@
-/* *{
+*{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
-} */
+}
 a {
   text-decoration: none;
   color: inherit;
@@ -24,8 +24,6 @@ body{
 	/*background-image: linear-gradient(180deg, #DAABAC, #ffffff);*/
 	height: 230px;
 	width: 260px;
-	height: 230px;
-	width: 260px;
 	padding: 6px;
 	border-radius: 8px;
 	font-size: 11pt;
@@ -36,16 +34,16 @@ body{
 		/* align = left-right */
 	justify-content: space-between;
 	align-items: center;
-	/* overflow needed for image rounded edges? */
-	/*overflow: hidden;*/
 	/*border: 3px solid green;*/
 }
 .box > h4{
 	text-align: center;
+	margin: 0;
 	/*border: 2px solid red;*/
 }
 .box > p{
-	/*border: 2px solid blue;*/
+	text-align: center;
+	margin: 0;
 	/*border: 2px solid blue;*/
 }
 .box > img{
@@ -53,7 +51,5 @@ body{
 	height: auto;
 	border-radius: 6px;
 	object-fit: contain;
-	margin-left: 20px;
-	margin-right: 20px;
 	/*border: 2px solid yellow;*/
 }
