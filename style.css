@@ -1,66 +1,56 @@
-/* I always reset all the html elements */
 *{
 	margin: 0;
 	padding: 0;
 	box-sizing: border-box;
 }
-
+a {
+  text-decoration: none;
+  color: inherit;
+}
 body{
-	font-family: sans-serif;
-	min-height: 100vh;
-	color: #555;
+	background-color: #5B0000;
+	/*background-image: linear-gradient(200deg, #583292, #24083b);*/
+	padding: 20px;
+	display: flex;
+	gap: 10px;
+	flex-wrap: wrap;
+		/* top-bottom along vertical axis */
+	justify-content: center;
+		/* L-R along horizontal axis */
+	align-content: center;
 }
-
-table{
-	width:  1000px;
-	margin: 30px auto;
+.box{
+	background-color: #DCDDDF;
+	/*background-image: linear-gradient(180deg, #DAABAC, #ffffff);*/
+	height: 220px;
+	width: 230px;
+	padding: 6px;
+	border-radius: 8px;
+	font-size: 11pt;
+	display: flex;
+	flex-direction: column;
+		/* direction: column flips the axes */
+		/* justify = top-bottom */
+		/* align = left-right */
+	justify-content: space-between;
+	align-items: center;
+	/* overflow needed for image rounded edges? */
+	/*overflow: hidden;*/
+	/*border: 3px solid green;*/
 }
-
-table th{
-	padding: 10px 0;
-	background-color: #f4f4f4;
-	/* background-color: #fff; */
-	border:  thin solid #d4d4d4;
-}
-
-table td{
-	padding: 10px;
-	border:  thin solid #d4d4d4;
-	width: 18%;
+.box > h4{
 	text-align: center;
-	background-color: #fff;
+	/*border: 2px solid red;*/
 }
-
-table img{
-	width:  70%;
+.box > p{
+	/*border: 2px solid blue;*/
 }
-
-table td.total-price{
-	font-weight: bold;
-	font-size: 22px;
-}
-table a{
-	text-decoration: none;
-	color: darkred;
-	background-color: #ffecef;
-	padding: 10px 15px;
-}
-table a:active{
-	background-color: #ccf4d6;
-	color:  green;
-}
-
-table select{
-	padding: 10px;
-	width:  200px;
-	font-size: 16px;
-	border: thin solid #d4d4d4;
-	background-color: transparent;
-}
-table select:focus{
-	outline: none;
-}
-
-table img{
-	width:  60%;
+.box > img{
+	max-width: 100%;
+	height: auto;
+	border-radius: 6px;
+	object-fit: contain;
+	margin-left: 20px;
+	margin-right: 20px;
+	/*border: 2px solid yellow;*/
 }
